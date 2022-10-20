@@ -10,6 +10,10 @@ use Symfony\Component\Console\Input\Input;
 
 class TeamController extends Controller
 {
+    public function getAllTeams()
+    {
+        return Team::all();
+    }
     public function findSpecificTeam($id): String
     {
         return Team::findOrFail($id)->names;
