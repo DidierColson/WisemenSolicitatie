@@ -1,8 +1,11 @@
 -database seeding command: php artisan db:seed --class=PokemonSeeder
 -link all Pokemon data: http://localhost:8000/api/pokemon/pokemons
 -link specific pokemon data (name only): http://localhost:8000/api/pokemon/detail/{id}
+-link to see all teams: http://localhost:8000/api/pokemon/team
 -link to see team by id: http://localhost:8000/api/pokemon/team/{id}
 -link to make team (id's of pokemon in body): http://localhost:8000/api/pokemon/team
+-link to see pokemon by name: http://localhost:8000/api/pokemon/name/{name}
+-link to see all pokemon by type: http://localhost:8000/api/pokemon/type/{type}
 --------------------------------------------------------------------
 What i would like to change :
 -Make different DB tables and use foreign keys instead of storing JSON for abilities, game_indices, moves and types.

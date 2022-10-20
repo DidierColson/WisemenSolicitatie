@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Pokemon;
 
 use App\Http\Controllers\Controller;
 use App\Models\Pokemon;
+use http\Client\Response;
 use http\Env\Request;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 
 class PokemonController extends Controller
@@ -35,4 +37,20 @@ class PokemonController extends Controller
         }
     }
 
+    public function findPokemonByName($name)
+    {
+        return Pokemon::where('name', 'LIKE', '%' . $name . '%')->get();
+    }
+
+    public function findPokemonByType($type): array
+    {
+        $typeLike = Pokemon::where('types', 'LIKE', '%' . $type . '%')->get();
+        $pokemonName = [];
+
+        foreach($typeLike as $pokemon)
+        {
+            array_push($pokemonName, $pokemon->name);
+        }
+        return $pokemonName;
+    }
 }

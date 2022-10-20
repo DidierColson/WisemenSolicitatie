@@ -14,6 +14,7 @@ class TeamController extends Controller
     {
         return Team::all();
     }
+
     public function findSpecificTeam($id): String
     {
         return Team::findOrFail($id)->names;

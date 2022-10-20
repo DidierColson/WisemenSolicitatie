@@ -24,6 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'pokemon', 'namespace' => 'App\Http\Controllers\Pokemon'], function(){
     Route::apiResource('pokemons', PokemonController::class);
     Route::get('detail/{id}', [PokemonController::class, 'findSpecificPokemon']);
+    Route::get('name/{name}', [PokemonController::class, 'findPokemonByName']);
+    Route::get('type/{type}', [PokemonController::class, 'findPokemonByType']);
+
     Route::get('team', [TeamController::class, 'getAllTeams']);
     Route::get('team/{id}', [TeamController::class, 'findSpecificTeam']);
     Route::post('team', [TeamController::class, 'addTeam']);
