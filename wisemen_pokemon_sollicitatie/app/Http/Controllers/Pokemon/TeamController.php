@@ -21,14 +21,16 @@ class TeamController extends Controller
 
         $team = new Team();
         $teamArray = [];
-        foreach($ids as $id){
-            $pokemon = Pokemon::findOrFail($id);
-            array_push($teamArray, $pokemon->name); 
+        if(count($ids) == 6)
+        {
+            foreach($ids as $id){
+                $pokemon = Pokemon::findOrFail($id);
+                array_push($teamArray, $pokemon->name); 
+            }
+            Team::create([
+                "names" => json_encode($teamArray)
+            ]);
         }
-        /*$team->names = $teamArray;
-        $team->save();*/
-        Team::create([
-            "names" => json_encode($teamArray)
-        ]);
+        
     }
 }

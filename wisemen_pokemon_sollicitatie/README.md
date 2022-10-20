@@ -6,3 +6,5 @@
 --------------------------------------------------------------------
 What i would like to change :
 -Make different DB tables and use foreign keys instead of storing JSON for abilities, game_indices, moves and types.
+-fix try, catch statements in controller to ensure correct error handling.
+-use laravel equivalent of service classes for processing data.

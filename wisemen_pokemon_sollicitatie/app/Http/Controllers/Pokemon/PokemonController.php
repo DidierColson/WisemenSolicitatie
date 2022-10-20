@@ -11,16 +11,28 @@ use Illuminate\Database\Eloquent\Collection;
 class PokemonController extends Controller
 {
 
-    public function index(): Collection
+    public function index(): array
     {
 
-        return Pokemon::all();
+        //return Pokemon::all();
+        $pokemons = Pokemon::all();
+        $listToReturn = [];
+        foreach($pokemons as $pokemon){
+            array_push($listToReturn, "{$pokemon->id}: {$pokemon->name}");
+        }
+        return $listToReturn;
     }
 
     public function findSpecificPokemon($id): String
     {
-        
-        return Pokemon::findOrFail($id)->name;
+        try
+        {
+            return Pokemon::findOrFail($id)->name;
+        }
+        catch(ModelNotFoundException $e)
+        {
+            return (new Response('Model not found', 400));
+        }
     }
 
 }
