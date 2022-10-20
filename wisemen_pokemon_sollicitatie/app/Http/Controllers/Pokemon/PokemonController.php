@@ -53,4 +53,19 @@ class PokemonController extends Controller
         }
         return $pokemonName;
     }
+
+    public function FindPokemonPaginated($page)
+    {
+        //$paginated = Pokemon::paginate(15);
+        $start = ($page-1) * 15;
+        $end = $page *15;
+        $paginated = Pokemon::whereBetween('id', [$start, $end])->get();
+        $pokemonName = [];
+
+        foreach($paginated as $pokemon)
+        {
+            array_push($pokemonName, $pokemon->name);
+        }
+        return $pokemonName;
+    }
 }

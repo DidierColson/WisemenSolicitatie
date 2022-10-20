@@ -6,6 +6,7 @@
 -link to make team (id's of pokemon in body): http://localhost:8000/api/pokemon/team
 -link to see pokemon by name: http://localhost:8000/api/pokemon/name/{name}
 -link to see all pokemon by type: http://localhost:8000/api/pokemon/type/{type}
+-link to see pokemon per 15 on page: http://localhost:8000/api/pokemon/paginate/{page}
 --------------------------------------------------------------------
 What i would like to change :
 -Make different DB tables and use foreign keys instead of storing JSON for abilities, game_indices, moves and types.

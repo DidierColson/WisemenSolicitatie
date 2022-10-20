@@ -26,6 +26,7 @@ Route::group(['prefix' => 'pokemon', 'namespace' => 'App\Http\Controllers\Pokemo
     Route::get('detail/{id}', [PokemonController::class, 'findSpecificPokemon']);
     Route::get('name/{name}', [PokemonController::class, 'findPokemonByName']);
     Route::get('type/{type}', [PokemonController::class, 'findPokemonByType']);
+    Route::get('paginate/{page}', [PokemonController::class, 'FindPokemonPaginated']);
 
     Route::get('team', [TeamController::class, 'getAllTeams']);
     Route::get('team/{id}', [TeamController::class, 'findSpecificTeam']);
