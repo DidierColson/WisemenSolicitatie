@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Pokemon\PokemonController;
+use App\Http\Controllers\Pokemon\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'pokemon', 'namespace' => 'App\Http\Controllers\Pokemon'], function(){
     Route::apiResource('pokemons', PokemonController::class);
     Route::get('detail/{id}', [PokemonController::class, 'findSpecificPokemon']);
+    Route::get('team/{id}', [TeamController::class, 'findSpecificTeam']);
+    Route::post('team', [TeamController::class, 'addTeam']);
 });
